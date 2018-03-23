@@ -1,0 +1,3 @@
+# READMe
+
+* THIS IS THE LOG FOLDER
