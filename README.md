@@ -6,7 +6,7 @@ We will start adding ktrs and kjbs to this repository.
 
 ## Configurations
 
-Project configurations are available under GroundWater-Configs folder. Each folder on this project represents a different environment.
+Project configurations are available under GroundWater-Configs folder. Each folder on this project represents a different environment configuration.
 
 ## Git operations
 
