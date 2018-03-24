@@ -6,10 +6,11 @@ We will start adding ktrs and kjbs to this repository.
 
 ## Git operations
 
-* develop on dev branch
 
-* merge master to dev
-  * git push (on master)
+* develop on dev branch
+* merge dev to master
   * git checkout dev
-  * git merge --no-ff master
   * git push origin dev
+  * git checkout master
+  * git merge --no-ff dev
+  * git push
