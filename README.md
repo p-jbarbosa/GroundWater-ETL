@@ -4,8 +4,11 @@ ETL repository for GroundWater.
 
 We will start adding ktrs and kjbs to this repository.
 
-## Git operations
+## Configurations
 
+Project configurations are available under GroundWater-Configs folder. Each folder on this project represents a different environment.
+
+## Git operations
 
 * develop on dev branch
 * merge dev to master
