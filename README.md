@@ -76,7 +76,9 @@ TO BE UPDATED.
 * always develop on dev branch
 * merge dev to master
   * git checkout dev
+  * perform devs
+  * git commit -m ...
   * git push origin dev
   * git checkout master
   * git merge --no-ff dev
-  * git pushgit push origin dev
+  * git push (when following the opposite path git push origin dev)
