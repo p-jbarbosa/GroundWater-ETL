@@ -1,3 +1,4 @@
 #Exclude stuff
 
 log/*.log
+file-mgmt/*.*
