@@ -796,8 +796,8 @@ Coloca em memória uma variável com o identificador do batch_parent_id que crio
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>608</yloc>
+      <xloc>128</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -829,8 +829,8 @@ Coloca em memória uma variável com o identificador do batch_parent_id que crio
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>608</yloc>
+      <xloc>496</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -884,8 +884,8 @@ Coloca em memória uma variável com o identificador do batch_parent_id que crio
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>608</yloc>
+      <xloc>320</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

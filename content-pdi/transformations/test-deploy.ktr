@@ -435,76 +435,21 @@
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>dw-biologia</name>
-    <server>${BD_HOST}</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>${DW_NAME}</database>
-    <port>3306</port>
-    <username>${BD_USER}</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce108fc0fc8e</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STREAM_RESULTS</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
   <order>
-    <hop>
-      <from>ti-dw-control</from>
-      <to>se-only-relevant</to>
-      <enabled>Y</enabled>
-    </hop>
     <hop>
       <from>se-only-relevant</from>
       <to>tfo-to-project</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>dg-fake-values</from>
+      <to>se-only-relevant</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
-    <name>ti-dw-control</name>
-    <type>TableInput</type>
+    <name>dg-fake-values</name>
+    <type>DataGrid</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -513,14 +458,48 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>dw-biologia</connection>
-    <sql>select *
-from dw_control;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
+    <fields>
+      <field>
+        <name>name</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>relevance</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <data>
+      <line>
+        <item>Jonas</item>
+        <item>1</item>
+      </line>
+      <line>
+        <item>Almeida</item>
+        <item>2</item>
+      </line>
+      <line>
+        <item>Alberta</item>
+        <item>3</item>
+      </line>
+      <line>
+        <item>Mariana</item>
+        <item>4</item>
+      </line>
+    </data>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -529,8 +508,8 @@ from dw_control;</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>96</yloc>
+      <xloc>160</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -547,12 +526,10 @@ from dw_control;</sql>
     </partitioning>
     <fields>
       <field>
-        <name>dw_nature</name>
-        <rename/>
+        <name>name</name>
       </field>
       <field>
-        <name>control_description</name>
-        <rename/>
+        <name>relevance</name>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -564,8 +541,8 @@ from dw_control;</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>96</yloc>
+      <xloc>336</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -594,7 +571,7 @@ from dw_control;</sql>
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>${CONFIG_DIR}/file</name>
+      <name>${FILE_MGMT_HOME}/file</name>
       <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
@@ -613,28 +590,28 @@ from dw_control;</sql>
     </file>
     <fields>
       <field>
-        <name>dw_nature</name>
+        <name>name</name>
         <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <length>-1</length>
         <precision>-1</precision>
       </field>
       <field>
-        <name>control_description</name>
-        <type>String</type>
+        <name>relevance</name>
+        <type>Integer</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <length>-1</length>
-        <precision>-1</precision>
+        <precision>0</precision>
       </field>
     </fields>
     <cluster_schema/>
@@ -645,8 +622,8 @@ from dw_control;</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>96</yloc>
+      <xloc>496</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -658,14 +635,6 @@ from dw_control;</sql>
   <attributes>
     <group>
       <name>explorerState</name>
-      <attribute>
-        <key>se-only-relevant</key>
-        <value/>
-      </attribute>
-      <attribute>
-        <key>tfo-to-project</key>
-        <value/>
-      </attribute>
     </group>
   </attributes>
 </transformation>
