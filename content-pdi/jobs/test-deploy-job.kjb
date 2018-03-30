@@ -67,8 +67,8 @@
     </slaveservers>
   <job-log-table>
     <connection>etl-control</connection>
-    <schema>etl-control</schema>
-    <table>pdi-job</table>
+    <schema>${PDI-CONTROL-SCHEMA}</schema>
+    <table>${PDI-CONTROL-TABLE}</table>
     <size_limit_lines/>
     <interval/>
     <timeout_days/>
