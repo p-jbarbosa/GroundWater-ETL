@@ -32,16 +32,19 @@ The ETL Program is controlled by the following projects:
   * scripts
 * **GroundWater-Configs**
   * controls the available configurations and supplies a folder to centralize uploading files (deploy-pdi)
-  * ├── config-pdi-dev
-    │   ├── jb_set_variables_spoon.kjb
-    │   ├── properties
-    │   ├── spoon.sh
-    │   └── start-pentaho.sh
-    ├── config-pdi-local
-    │   ├── jb_set_variables_spoon.kjb
-    │   ├── properties
-    │   └── spoon.sh
-    └── README.md
+
+``` txt
+├── config-pdi-dev
+│   ├── jb_set_variables_spoon.kjb
+│   ├── properties
+│   ├── spoon.sh
+│   └── start-pentaho.sh
+├── config-pdi-local
+│   ├── jb_set_variables_spoon.kjb
+│   ├── properties
+│   └── spoon.sh
+└── README.md
+```
 
 **GroundWater-Common** and **GroundWater-ETL** will have folders both one the local file system and on the BA server (content-pdi and probably content-ba).
 
