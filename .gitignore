@@ -1,4 +1,4 @@
 #Exclude stuff
 
 log/*.log
-file-mgmt/*.*
+file-mgmt/*.csv
