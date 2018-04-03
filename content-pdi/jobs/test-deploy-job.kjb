@@ -67,8 +67,8 @@
     </slaveservers>
   <job-log-table>
     <connection>etl-control</connection>
-    <schema>${PDI-CONTROL-SCHEMA}</schema>
-    <table>${PDI-CONTROL-TABLE}</table>
+    <schema/>
+    <table/>
     <size_limit_lines/>
     <interval/>
     <timeout_days/>
@@ -422,7 +422,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>480</xloc>
+      <xloc>208</xloc>
       <yloc>176</yloc>
     </entry>
     <entry>

@@ -6,12 +6,13 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
+        <connection>etl-control</connection>
         <schema/>
         <table/>
         <size_limit_lines/>
@@ -47,7 +48,7 @@
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject>dg-fake-values</subject>
         </field>
         <field>
           <id>LINES_UPDATED</id>
@@ -65,7 +66,7 @@
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject>tfo-to-project</subject>
         </field>
         <field>
           <id>LINES_REJECTED</id>
@@ -435,6 +436,57 @@
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>etl-control</name>
+    <server>${JOB_BD_HOST}</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${JOB_BD}</database>
+    <port>5432</port>
+    <username>${JOB_BD_USER}</username>
+    <password>${JOB_BD_PASSWORD}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>5432</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
       <from>se-only-relevant</from>
@@ -508,8 +560,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>208</yloc>
+      <xloc>112</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -541,8 +593,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>208</yloc>
+      <xloc>288</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -622,8 +674,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>208</yloc>
+      <xloc>448</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
