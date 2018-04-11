@@ -569,7 +569,7 @@
     <name>se-only-relevant</name>
     <type>SelectValues</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -579,9 +579,15 @@
     <fields>
       <field>
         <name>name</name>
+        <rename/>
       </field>
       <field>
         <name>relevance</name>
+        <rename/>
+      </field>
+      <field>
+        <name>test</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -615,9 +621,9 @@
     <enclosure_fix_disabled>N</enclosure_fix_disabled>
     <header>Y</header>
     <footer>N</footer>
-    <format>DOS</format>
+    <format>UNIX</format>
     <compression>None</compression>
-    <encoding/>
+    <encoding>UTF-8</encoding>
     <endedLine/>
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
@@ -626,7 +632,7 @@
       <name>${FILE_MGMT_HOME}/file</name>
       <is_command>N</is_command>
       <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <do_not_open_new_file_init>Y</do_not_open_new_file_init>
       <extention>csv</extention>
       <append>N</append>
       <split>N</split>
@@ -680,6 +686,18 @@
     </GUI>
   </step>
   <step_error_handling>
+    <error>
+      <source_step>se-only-relevant</source_step>
+      <target_step>Dummy (do nothing)</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
+    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>

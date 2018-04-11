@@ -717,6 +717,17 @@
       <xloc>224</xloc>
       <yloc>368</yloc>
     </entry>
+    <entry>
+      <name>aj-error-detected</name>
+      <description/>
+      <type>ABORT</type>
+      <message>error-detected</message>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>224</xloc>
+      <yloc>496</yloc>
+    </entry>
   </entries>
   <hops>
     <hop>
@@ -798,6 +809,15 @@
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>ktr-error-job</from>
+      <to>aj-error-detected</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>
