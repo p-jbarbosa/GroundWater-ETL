@@ -165,10 +165,15 @@ POST http://di-server:8080/pentaho/kettle/executeJob/?rep=Localhost&user=admin&p
 
 ``` sh
 zip -r GroundWater-Configs/deploy-pdi/GroundWater-ETL.zip GroundWater-ETL/ -x *.git* *sql* *file-mgmt* *log* .gitignore
+zip -r GroundWater-Configs/deploy-pdi/GroundWater-Common.zip GroundWater-Common/ -x *.git* *sql*
 ```
 
 * import projects
 
 ``` sh
+cd ~/Pentaho/server/pentaho-server/
+
 ./import-export.sh --import --url=http://localhost:8080/pentaho --username=admin --password=password --overwrite=true --path=/public/GroundWater --file-path=/home/malskat/sandbox/GroundWater-Configs/deploy-pdi/GroundWater-ETL.zip
+
 ./import-export.sh --import --url=http://localhost:8080/pentaho --username=admin --password=password --overwrite=true --path=/public/GroundWater --file-path=/home/malskat/sandbox/GroundWater-Configs/deploy-pdi/GroundWater-Common.zip
+```
