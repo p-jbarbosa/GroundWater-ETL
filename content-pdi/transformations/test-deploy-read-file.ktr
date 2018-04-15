@@ -430,7 +430,7 @@
     <created_date>2018/03/30 11:23:59.171</created_date>
     <modified_user>-</modified_user>
     <modified_date>2018/03/30 11:23:59.171</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -576,9 +576,7 @@
     <displayHeader>Y</displayHeader>
     <limitRows>N</limitRows>
     <limitRowsNumber>0</limitRowsNumber>
-    <logmessage>**********************************
-**********************************
-FILE CONTENT</logmessage>
+    <logmessage>** ROW CONTENT ON FILE READING **</logmessage>
     <fields>
       <field>
         <name>name</name>
@@ -608,10 +606,6 @@ FILE CONTENT</logmessage>
   <attributes>
     <group>
       <name>explorerState</name>
-      <attribute>
-        <key>wrt-file-content</key>
-        <value/>
-      </attribute>
     </group>
   </attributes>
 </transformation>
