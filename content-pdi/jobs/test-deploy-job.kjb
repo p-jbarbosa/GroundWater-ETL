@@ -947,7 +947,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>640</xloc>
-      <yloc>176</yloc>
+      <yloc>208</yloc>
     </entry>
     <entry>
       <name>ktr-error-job-start-not-allowed</name>
@@ -981,7 +981,7 @@
         <parameter>
           <name>P_CHECKPOINT</name>
           <stream_name/>
-          <value>Validation-Connection</value>
+          <value>Validation-Start</value>
         </parameter>
         <parameter>
           <name>P_STATUS</name>
@@ -1015,7 +1015,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>784</xloc>
-      <yloc>176</yloc>
+      <yloc>208</yloc>
     </entry>
     <entry>
       <name>V_FORCE_EXECUTION = 1 </name>
@@ -1068,6 +1068,21 @@ JOB MAY RESTART
       <nr>0</nr>
       <xloc>1200</xloc>
       <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>wtl-restartability</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>--------------------
+JOB IS STILL RUNNING
+--------------------</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>--- JOB RESTARTABILITY ERROR ---</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>784</xloc>
+      <yloc>112</yloc>
     </entry>
   </entries>
   <hops>
@@ -1181,15 +1196,6 @@ JOB MAY RESTART
     </hop>
     <hop>
       <from>V_START_FLAG = 1</from>
-      <to>ktr-error-job-start-not-allowed</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>V_START_FLAG = 1</from>
       <to>ch-db-connection-groundwater</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -1263,6 +1269,24 @@ JOB MAY RESTART
     <hop>
       <from>wtl-db-validation</from>
       <to>aj-error-validation</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>V_START_FLAG = 1</from>
+      <to>wtl-restartability</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>wtl-restartability</from>
+      <to>ktr-error-job-start-not-allowed</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
