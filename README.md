@@ -177,3 +177,11 @@ cd ~/Pentaho/server/pentaho-server/
 
 ./import-export.sh --import --url=http://localhost:8080/pentaho --username=admin --password=password --overwrite=true --path=/public/GroundWater --file-path=/home/malskat/sandbox/GroundWater-Configs/deploy-pdi/GroundWater-Common.zip
 ```
+
+### Running with kitchen
+
+Run the script from the configuration folder.
+
+``` sh
+./ground-water-kitchen.sh -file=/home/malskat/sandbox/GroundWater-Common/content-pdi/jobs/jb-wrapper.kjb -param:P_JOB_NAME=test-deploy-job -level=Minimal
+```
