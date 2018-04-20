@@ -182,6 +182,14 @@ cd ~/Pentaho/server/pentaho-server/
 
 Run the script from the configuration folder.
 
+* file based
+* 
 ``` sh
 ./ground-water-kitchen.sh -file=/home/malskat/sandbox/GroundWater-Common/content-pdi/jobs/jb-wrapper.kjb -param:P_JOB_NAME=test-deploy-job -level=Minimal
+```
+
+* files on repository
+
+``` sh
+./ground-water-kitchen.sh -rep=Localhost -user=admin -pass=password -dir=/public/GroundWater/GroundWater-Common/content-pdi/jobs -job=jb-wrapper -param:P_JOB_NAME=test-deploy-job -param:P_PROJECT_NAME=grwater -level=Minimal
 ```
