@@ -13,6 +13,61 @@
   <parameters>
     </parameters>
   <connection>
+    <name>dw-biologia</name>
+    <server>${BD_HOST}</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>${DW_NAME}</database>
+    <port>3306</port>
+    <username>${BD_USER}</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce108fc0fc8e</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>etl-control</name>
     <server>${JOB_BD_HOST}</server>
     <type>POSTGRESQL</type>
@@ -422,8 +477,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>208</xloc>
-      <yloc>176</yloc>
+      <xloc>112</xloc>
+      <yloc>336</yloc>
     </entry>
     <entry>
       <name>test-deploy</name>
@@ -458,8 +513,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>496</xloc>
-      <yloc>288</yloc>
+      <xloc>896</xloc>
+      <yloc>496</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -468,11 +523,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>496</xloc>
-      <yloc>592</yloc>
+      <xloc>896</xloc>
+      <yloc>800</yloc>
     </entry>
     <entry>
-      <name>ktr-new-job-ex-start</name>
+      <name>ktr-new-job-ex-text-deploy</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -514,8 +569,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>784</xloc>
-      <yloc>288</yloc>
+      <xloc>1200</xloc>
+      <yloc>496</yloc>
     </entry>
     <entry>
       <name>ktr-log-batch-id</name>
@@ -550,8 +605,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>784</xloc>
-      <yloc>176</yloc>
+      <xloc>336</xloc>
+      <yloc>336</yloc>
     </entry>
     <entry>
       <name>ktr-new-job-success</name>
@@ -590,14 +645,14 @@
         <parameter>
           <name>P_STATUS</name>
           <stream_name/>
-          <value>success</value>
+          <value>SUCCESS</value>
         </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>784</xloc>
-      <yloc>592</yloc>
+      <xloc>1184</xloc>
+      <yloc>800</yloc>
     </entry>
     <entry>
       <name>ktr-test-deploy-read-file</name>
@@ -632,8 +687,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>496</xloc>
-      <yloc>416</yloc>
+      <xloc>896</xloc>
+      <yloc>624</yloc>
     </entry>
     <entry>
       <name>ktr-new-job-ex-read</name>
@@ -678,11 +733,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>784</xloc>
-      <yloc>416</yloc>
+      <xloc>1184</xloc>
+      <yloc>624</yloc>
     </entry>
     <entry>
-      <name>ktr-error-job</name>
+      <name>ktr-error-job-test-deploy</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -710,17 +765,329 @@
       <run_configuration>Pentaho local</run_configuration>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>P_CHECKPOINT</name>
+          <stream_name/>
+          <value>test-deploy</value>
+        </parameter>
+        <parameter>
+          <name>P_STATUS</name>
+          <stream_name/>
+          <value>ERROR</value>
+        </parameter>
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>224</xloc>
-      <yloc>368</yloc>
+      <xloc>656</xloc>
+      <yloc>496</yloc>
+    </entry>
+    <entry>
+      <name>aj-error-detected</name>
+      <description/>
+      <type>ABORT</type>
+      <message>error-detected</message>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>464</xloc>
+      <yloc>560</yloc>
+    </entry>
+    <entry>
+      <name>ktr-error-job-test-deploy-read-file</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${CONTENT_COMMON_HOME}/transformations/etl-mgmt/ktr-error-job.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>P_CHECKPOINT</name>
+          <stream_name/>
+          <value>test-deploy-write-to-file</value>
+        </parameter>
+        <parameter>
+          <name>P_STATUS</name>
+          <stream_name/>
+          <value>ERROR</value>
+        </parameter>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>656</xloc>
+      <yloc>624</yloc>
+    </entry>
+    <entry>
+      <name>ch-db-connection-groundwater</name>
+      <description/>
+      <type>CHECK_DB_CONNECTIONS</type>
+      <connections>
+        <connection>
+          <name>dw-biologia</name>
+          <waitfor>10</waitfor>
+          <waittime>millisecond</waittime>
+        </connection>
+      </connections>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1200</xloc>
+      <yloc>336</yloc>
+    </entry>
+    <entry>
+      <name>ktr-error-job-connection-failed</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${CONTENT_COMMON_HOME}/transformations/etl-mgmt/ktr-error-job.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>P_CHECKPOINT</name>
+          <stream_name/>
+          <value>Validation-Connection</value>
+        </parameter>
+        <parameter>
+          <name>P_STATUS</name>
+          <stream_name/>
+          <value>ERROR-VALIDATION-DB-CONNECTION</value>
+        </parameter>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1200</xloc>
+      <yloc>240</yloc>
+    </entry>
+    <entry>
+      <name>aj-error-validation</name>
+      <description/>
+      <type>ABORT</type>
+      <message>error-detected-validation</message>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1200</xloc>
+      <yloc>32</yloc>
+    </entry>
+    <entry>
+      <name>ktr-job-start-check</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${CONTENT_COMMON_HOME}/transformations/etl-mgmt/ktr-job-start-check.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>640</xloc>
+      <yloc>208</yloc>
+    </entry>
+    <entry>
+      <name>ktr-error-job-start-not-allowed</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${CONTENT_COMMON_HOME}/transformations/etl-mgmt/ktr-error-job.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+        <parameter>
+          <name>P_CHECKPOINT</name>
+          <stream_name/>
+          <value>Validation-Start</value>
+        </parameter>
+        <parameter>
+          <name>P_STATUS</name>
+          <stream_name/>
+          <value>ERROR-START-NOT-ALLOWED</value>
+        </parameter>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>784</xloc>
+      <yloc>32</yloc>
+    </entry>
+    <entry>
+      <name>V_START_FLAG = 1</name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <valuetype>variable</valuetype>
+      <fieldname/>
+      <variablename>${V_START_FLAG}</variablename>
+      <fieldtype>string</fieldtype>
+      <mask/>
+      <comparevalue>1</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>784</xloc>
+      <yloc>208</yloc>
+    </entry>
+    <entry>
+      <name>V_FORCE_EXECUTION = 1 </name>
+      <description/>
+      <type>SIMPLE_EVAL</type>
+      <valuetype>variable</valuetype>
+      <fieldname/>
+      <variablename>${V_FORCE_EXECUTION}</variablename>
+      <fieldtype>string</fieldtype>
+      <mask/>
+      <comparevalue>1</comparevalue>
+      <minvalue/>
+      <maxvalue/>
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>640</xloc>
+      <yloc>336</yloc>
+    </entry>
+    <entry>
+      <name>wtl-start-not-allowed</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>--------------------------------
+JOB NEEDS TO WAIT OR FORCE START
+--------------------------------</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>--- PREVIOUS LOAD STILL RUNNING OR ERRORED ---</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>992</xloc>
+      <yloc>32</yloc>
+    </entry>
+    <entry>
+      <name>wtl-db-validation</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>---------------
+JOB MAY RESTART
+---------------</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>--- DB CONNECTION ERROR ---</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1200</xloc>
+      <yloc>128</yloc>
+    </entry>
+    <entry>
+      <name>wtl-restartability</name>
+      <description/>
+      <type>WRITE_TO_LOG</type>
+      <logmessage>--------------------
+JOB IS STILL RUNNING
+--------------------</logmessage>
+      <loglevel>Basic</loglevel>
+      <logsubject>--- JOB RESTARTABILITY ERROR ---</logsubject>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>784</xloc>
+      <yloc>112</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>ktr-new-job-ex-start</from>
+      <from>ktr-new-job-ex-text-deploy</from>
       <to>test-deploy</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -736,15 +1103,6 @@
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>ktr-log-batch-id</from>
-      <to>ktr-new-job-ex-start</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>ktr-new-job-success</from>
@@ -784,7 +1142,7 @@
     </hop>
     <hop>
       <from>test-deploy</from>
-      <to>ktr-error-job</to>
+      <to>ktr-error-job-test-deploy</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -792,12 +1150,147 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
+      <from>ktr-error-job-test-deploy</from>
+      <to>aj-error-detected</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
       <from>ktr-test-deploy-read-file</from>
-      <to>ktr-error-job</to>
+      <to>ktr-error-job-test-deploy-read-file</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>ktr-error-job-test-deploy-read-file</from>
+      <to>aj-error-detected</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>ch-db-connection-groundwater</from>
+      <to>ktr-error-job-connection-failed</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>ktr-job-start-check</from>
+      <to>V_START_FLAG = 1</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>V_START_FLAG = 1</from>
+      <to>ch-db-connection-groundwater</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>ch-db-connection-groundwater</from>
+      <to>ktr-new-job-ex-text-deploy</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>ktr-log-batch-id</from>
+      <to>V_FORCE_EXECUTION = 1 </to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>V_FORCE_EXECUTION = 1 </from>
+      <to>ch-db-connection-groundwater</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>V_FORCE_EXECUTION = 1 </from>
+      <to>ktr-job-start-check</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>ktr-error-job-start-not-allowed</from>
+      <to>wtl-start-not-allowed</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>wtl-start-not-allowed</from>
+      <to>aj-error-validation</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>ktr-error-job-connection-failed</from>
+      <to>wtl-db-validation</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>wtl-db-validation</from>
+      <to>aj-error-validation</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>V_START_FLAG = 1</from>
+      <to>wtl-restartability</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>wtl-restartability</from>
+      <to>ktr-error-job-start-not-allowed</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>
@@ -807,8 +1300,8 @@
 Make sure to check "Pass Batch ID"
 for the solution main job
 via Job Properties > Settings</note>
-      <xloc>80</xloc>
-      <yloc>48</yloc>
+      <xloc>16</xloc>
+      <yloc>16</yloc>
       <width>247</width>
       <heigth>78</heigth>
       <fontname>Ubuntu</fontname>
@@ -821,6 +1314,49 @@ via Job Properties > Settings</note>
       <backgroundcolorred>255</backgroundcolorred>
       <backgroundcolorgreen>205</backgroundcolorgreen>
       <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Validations
+DBs, files and restartibility                                                    																				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</note>
+      <xloc>560</xloc>
+      <yloc>0</yloc>
+      <width>826</width>
+      <heigth>401</heigth>
+      <fontname>Ubuntu</fontname>
+      <fontsize>11</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
